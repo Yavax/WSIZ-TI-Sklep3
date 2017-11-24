@@ -6,6 +6,7 @@
 package warstwa_biznesowa.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -80,17 +81,36 @@ public class Produkt1 implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Produkt1)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Produkt1 other = (Produkt1) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produkt1 other = (Produkt1) obj;
+        if (Float.floatToIntBits(this.cena) != Float.floatToIntBits(other.cena)) {
+            return false;
+        }
+        if (this.promocja != other.promocja) {
+            return false;
+        }
+        if (!Objects.equals(this.nazwa, other.nazwa)) {
+            return false;
+        }
+        if (!Objects.equals(this.kategoria, other.kategoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+
+
 
     @Override
     public String toString() {
