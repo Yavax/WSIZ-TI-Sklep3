@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="title">
+                Rezultat
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nazwa produktu" for="nazwa"/>
+                        <h:outputText id="nazwa" value="#{managed_produkt.nazwa}"/>
+                        <h:outputLabel value="Kategoria produktu" for="kategoria"/>
+                        <h:outputText id="kategoria" value="#{managed_produkt.kategoria}"/>
+                        <h:outputLabel value="Cena produktu" for="cena"/>
+                        <h:outputText id="cena" value="#{managed_produkt.cena}"/>
+                        <h:outputLabel value="Promocja" for="promocja"/>
+                        <h:outputText id="promocja" value="#{managed_produkt.promocja}"/>
+                        <h:outputLabel value="Cena brutto" for="cena_brutto"/>
+                        <h:outputText id="cena_brutto" value="#{managed_produkt.cena_brutto}"/>
+                    </h:panelGrid>
+                    <h:commandButton id="powrot" value="Powrot" action="/faces/index1"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
