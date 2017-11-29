@@ -11,10 +11,12 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <h:panelGrid columns="2">
+                    <h:outputText escape="false" value= "Taki produkt juz istnieje"
+                                    rendered="#{managed_produkt.stan==0}"/>
+                    <h:panelGrid columns="2" rendered="#{managed_produkt.stan!=0}">
                         <h:outputLabel value="Nazwa produktu" for="nazwa"/>
                         <h:outputText id="nazwa" value="#{managed_produkt.nazwa}"/>
-                        <h:outputLabel value="Kategoria produktu" for="kategoria"/>
+                        <h:outputLabel value="Kategoria" for="kategoria"/>
                         <h:outputText id="kategoria" value="#{managed_produkt.kategoria}"/>
                         <h:outputLabel value="Cena produktu" for="cena"/>
                         <h:outputText id="cena" value="#{managed_produkt.cena}"/>

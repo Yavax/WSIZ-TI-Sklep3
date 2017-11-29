@@ -5,12 +5,12 @@
  */
 package warstwa_internetowa;
 
-import javax.annotation.ManagedBean;
+import warstwa_biznesowa.Fasada_warstwy_biznesowej;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import warstwa_biznesowa.Fasada_warstwy_biznesowej;
 
 /**
  *
@@ -28,7 +28,7 @@ public class Managed_produkt {
     private String promocja;
     private String cena_brutto;
     private DataModel items;
-    private int stan = 1;
+    private int stan =1;
 
     public Managed_produkt() {   
     }
@@ -39,6 +39,29 @@ public class Managed_produkt {
 
     public void setFasada(Fasada_warstwy_biznesowej fasada) {
         this.fasada = fasada;
+    }
+    
+    public DataModel utworz_DataModel() {
+        return new ListDataModel(fasada.items());
+    }
+
+    public DataModel getItems() {
+        if (items == null) {
+            items = utworz_DataModel();
+        }
+        return items;
+    }
+
+    public void setItems(DataModel items) {
+        this.items = items;
+    }
+
+    public int getStan() {
+        return stan;
+    }
+
+    public void setStan(int stan) {
+        this.stan = stan;
     }
 
     public String getNazwa() {
@@ -81,42 +104,24 @@ public class Managed_produkt {
         this.cena_brutto = cena_brutto;
     }
     
-    public DataModel utworz_DataModel(){
-        return new ListDataModel(fasada.items());
-    }
-
-    public DataModel getItems() {
-        if(items == null){
-            items = utworz_DataModel();
-        }
-        return items;
-    }
-
-    public void setItems(DataModel items) {
-        this.items = items;
-    }
-
-    public int getStan() {
-        return stan;
-    }
-
-    public void setStan(int stan) {
-        this.stan = stan;
-    }
-    
-    public String dodaj_produkt(){
+    public String dodaj_produkt()
+    {
         String[] dane = {nazwa, kategoria, cena, promocja};
         fasada.utworz_produkt(dane);
         dane_produktu();
         return "rezultat2";
     }
     
-    public void dane_produktu(){
+    
+    
+    public void dane_produktu()
+    {
         stan = 1;
-        String[] dane= fasada.dane_produktu();
-        if(dane == null){
+        String[] dane = fasada.dane_produktu();
+        if (dane == null) 
+        {
             stan = 0;
-        }else{
+        } else {
             nazwa=dane[0];
             kategoria = dane[1];
             cena=dane[2];

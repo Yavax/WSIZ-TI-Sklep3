@@ -9,7 +9,7 @@
         <h:outputStylesheet name="css/default.css"/>
         <h:outputStylesheet name="css/cssLayout.css"/>
         <title>
-            <ui:insert name="title">Facelets Template </ui:insert>
+            <ui:insert name="title"> Template </ui:insert>
         </title>
     </h:head>
 
@@ -20,12 +20,18 @@
         </div>
         <div>
             <div id="left">
-                <h:link outcome="/faces/warstwa_internetowa_jsf/dodaj_produkt1" value="Dodaj produkt"/>
+                <h:link outcome="/faces/warstwa_internetowa_jsf/dodaj_produkt2"
+                    value="Dodaj produkt"/><br/>
+                <h:link outcome="/faces/warstwa_internetowa_jsf/lista_produktow"
+                    value="Lista produktow"/>
             </div>
             <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>
             </div>
         </div>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" />
+        </h:panelGroup>
         <div id="bottom">
             <ui:insert name="bottom">Bottom</ui:insert>
         </div>

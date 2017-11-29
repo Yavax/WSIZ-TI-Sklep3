@@ -67,8 +67,8 @@ public class Fasada_warstwy_biznesowej {
         for(Produkt1 p: produkty){
             ArrayList<String> wiersz = new ArrayList();
             wiersz.add(p.getId().toString());
-            wiersz.add(p.getNazwa().toString());
-            wiersz.add(p.getKategoria().toString());
+            wiersz.add(p.getNazwa());
+            wiersz.add(p.getKategoria());
             wiersz.add("" + p.getCena());
             wiersz.add(""  + p.getPromocja());
             wiersz.add("" + p.cena_brutto());
