@@ -11,21 +11,21 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <h:outputText escape="false" value= "Taki produkt juz istnieje"
+                    <h:outputText escape="false" value= "#{bundle['rezultat2.nie_dodano']}"
                                     rendered="#{managed_produkt.stan==0}"/>
                     <h:panelGrid columns="2" rendered="#{managed_produkt.stan!=0}">
-                        <h:outputLabel value="Nazwa produktu" for="nazwa"/>
+                        <h:outputLabel value="#{bundle['Lista_produktow.nazwa']}" for="nazwa"/>
                         <h:outputText id="nazwa" value="#{managed_produkt.nazwa}"/>
-                        <h:outputLabel value="Kategoria" for="kategoria"/>
+                        <h:outputLabel value="#{bundle['Lista_produktow.kategoria']}" for="kategoria"/>
                         <h:outputText id="kategoria" value="#{managed_produkt.kategoria}"/>
-                        <h:outputLabel value="Cena produktu" for="cena"/>
+                        <h:outputLabel value="#{bundle['Lista_produktow.cena']}" for="cena"/>
                         <h:outputText id="cena" value="#{managed_produkt.cena}"/>
-                        <h:outputLabel value="Promocja" for="promocja"/>
+                        <h:outputLabel value="#{bundle['Lista_produktow.promocja']}" for="promocja"/>
                         <h:outputText id="promocja" value="#{managed_produkt.promocja}"/>
-                        <h:outputLabel value="Cena brutto" for="cena_brutto"/>
+                        <h:outputLabel value="#{bundle['Lista_produktow.cenabrutto']}" for="cena_brutto"/>
                         <h:outputText id="cena_brutto" value="#{managed_produkt.cena_brutto}"/>
                     </h:panelGrid>
-                    <h:commandButton id="powrot" value="Powrot" action="/faces/index1"/>
+                    <h:commandButton id="powrot" value="#{bundle['Lista_produktow.powrot']}" action="/faces/index1"/>
                 </h:form>
             </ui:define>
         </ui:composition>
